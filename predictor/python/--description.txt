@@ -1,0 +1,31 @@
+### Module pour connecter les cripts à la base de données
+connector.py (connector.pyc)
+
+### Scripts qui vont chercher les données actuelles: 
+rainAndTemp.py (pluie et température, 12 prochaines heures)
+flowAndLevel.py (niveau et débits les plus récents)
+
+### Script qui génère les modèles d'apprentissage machine
+model-pickler.py 
+models.p (modèles, enregistrés en 'pickles python'
+
+### Script qui fait les prédictions selon les conditions actuelles 
+predictor.py
+
+### Script pour intégrer les données historiques à la base données à partir des 'rawData'
+DBhistorical.py
+makeStationInfo.py
+
+### Scripts pour générer les graphiques
+PNGkde.py
+PNGhistorical.py
+PNGseasonal.py
+
+### Script qui permet récupère les données d'échantillonnage les plus récentes du RSMA
+nowQualo.py
+
+
+
+### Pas en utilisation
+NaiveBayesCV.py (pour faire la cross validation des modèles prédictifs)
+htmlGraphGen.py (pour générer les graphiques en html, style D3.js - manque de temps pour déboguer)

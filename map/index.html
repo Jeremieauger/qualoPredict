@@ -1,0 +1,106 @@
+<!DOCTYPE html >
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="myBS.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCizTuSk3An4_BR836n7XMV4gcgee2HGY0" type="text/javascript"></script>
+    <title>Qualo-Pr&eacute;dict</title>
+    <script type="text/javascript" src="mapScript.js"></script>
+
+    <!-- To make the favIcon - first, hide this line for IE (needed for Firefox and others) -->
+    <![if !IE]>
+    <link rel="icon" href="png/castor.png" type="image/x-icon" />
+    <![endif]>
+    <!-- This is needed for IE -->
+    <link rel="shortcut icon" href="png/castor.ico" type="image/ico" />
+  </head>
+
+  <body onload="load()">
+
+    <div class="google-map-canvas" id="map"></div>
+
+      <div class="container-legend text-center" id="placeHolder">
+        <h1>Cliquez sur les stations <br> pour plus d'informations</h1>
+      </div>
+
+      <div class="container-legend" id="graphLegend"  style="display: none">
+       <div class="row">
+         <a id="detailsLink" href="" target="_blank" class="btn btn-info" role="button" data-toggle="tooltip" data-placement="right" title="Cliquez&nbsp;pour&nbsp;les d&eacute;tails&nbsp;de&nbsp;la&nbsp;station" style="padding:0.5vmin; border:0; width:100%; color:#000000">
+           <div id="predName"></div>
+         </a>
+       </div>
+       <div class="row vertical-align" id="graphRow">
+         <div class="col-md-6 col-xs-6" style="width:26vmin">
+           <a id="graphLink" href="#"><img class="img-rounded" id="graph" data-toggle="tooltip" data-placement="bottom" title="Cliquez&nbsp;pour&nbsp;agrandir" src="" style="float:left"></a>
+         </div>
+         <div class="col-md-6 col-xs-6" style="min-width:30vmin">
+           <h2 id="predBlock">
+             <div class="row vertical-align">
+               <div class="col-md-8 col-xs-8" style="text-align:left;">Pr&eacute;diction <br> (UFC/100ml):</div>
+               <div class="col-md-4 col-xs-4" id="predUFC"><b><h1 style="text-align:center; margin: 8vmin;"></h1></b></div>
+             </div>
+             <div class="row vertical-align">
+               <div class="col-md-8 col-xs-8" style="text-align:left;">Catégorie: </div>
+               <div class="col-md-4 col-xs-4" id="predNum"><b></b></div>
+             </div>
+             <div class="row vertical-align" style="text-align:center;">
+               <div class="col-md-12 col-xs-12" id="predString"></div>
+             </div>
+             <div class="row vertical-align" style="text-align:center;">
+               <div class="col-md-12 col-xs-12"><h2 id="latestPrediction"></h2></div>
+             </div>
+           </h2>
+         </div>
+       </div>
+     </div>
+
+     <div class="container-legend" id="smallLegend">
+       <h3><b>IBIZ</b>: &Icirc;le Bizard </h3>
+       <h3><b>BLAP</b>: Bassin de Laprairie</h3>
+       <h3><b>LSL</b>: Lac St-Louis</h3>
+       <h3><b>FSL</b>: Fleuve St-laurent</h3>
+       <h3><b>RDP</b>: Rivière-des-Prairies</h3>
+     </div>
+
+     <div class="container-legend" id="staticLegend">
+       <h2 data-toggle="tooltip" data-placement="top" title="Unit&eacute;s&nbsp;Formatrices&nbsp;de Colonies&nbsp;par&nbsp;100&nbsp;mL" style="margin-top:-0.7vmin">UFC par 100ml</h2>
+       <div class="row vertical-align" style="border: none; border-top: 0.2vmin solid #777; margin: 0px">
+         <div class="col-md-4 col-xs-4">
+           <h4>Toutes activit&eacute;s <br> permises <br> 0 &agrave; 200 UFC</h4>
+         </div>
+         <div class="col-md-4 col-xs-4">
+           <h4> Activit&eacute;s <br> sans contact <br> 200 &agrave; 1000 UFC</h4>
+         </div>
+         <div class="col-md-4 col-xs-4">
+           <h4> Tout usage <br> compromis <br> 1000 UFC et+</h4>
+         </div>
+       </div>
+       <div class="row vertical-align" style=" border-bottom: 0.2vmin solid #777;">
+         <img class="img-responsive" id="heatRuler" src="png/heatRuler.png">
+       </div>
+     </div>
+
+     <button id="homeButton" type="button" class="btn btn-default btn-sm">
+       <span class="glyphicon glyphicon-home"  style="font-size:3vmax"> </span>
+     </button>
+
+     <!-- Creates the bootstrap modal where the image will appear -->
+     <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+           </div>
+           <div class="modal-body text-center">
+             <img src="" id="imagepreview">
+           </div>
+         </div>
+       </div>
+     </div>
+
+  </body>
+</html>
