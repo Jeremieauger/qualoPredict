@@ -7,7 +7,7 @@ flowAndLevel.py (niveau et débits les plus récents)
 
 ### Script qui génère les modèles d'apprentissage machine
 model-pickler.py 
-models.p (modèles, enregistrés en 'pickles python'
+models.p (modèles, enregistrés en 'pickles python')
 
 ### Script qui fait les prédictions selon les conditions actuelles 
 predictor.py
