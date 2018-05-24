@@ -77,19 +77,3 @@ for filename in fileNames:
     connection.execute(queryRainAndTemp)
 
 
-#=========================================================================================
-#=========================================================================================
-#=========================================================================================
-
-# mysqldump appwithdb nowRainAndTemp > nowRainAndTemp.sql
-# 
-# mysqldump -u adminKdKYWQc -p appwithdb nowRainAndTemp > $OPENSHIFT_DATA_DIR/rainDump.sql
-# 
-# mysqldump -p --user=adminKdKYWQc appwithdb nowRainAndTemp > tableName.sql
-# 
-# CREATE TABLE `nowRainAndTemp` (
-#   `date` varchar(30) NOT NULL,
-#   `rain24h` float(6,3) NOT NULL,
-#   `meanTemp` float(6,3) NOT NULL,
-#   PRIMARY KEY (`date`)
-# ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
